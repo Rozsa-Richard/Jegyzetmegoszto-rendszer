@@ -1,7 +1,9 @@
 import express from "express";
 import cors from "cors";
+import "dotenv/config";
 import noteRouter from "./routers/noteRouter.js";
 import userRouter from "./routers/userRouter.js";
+import { configDotenv } from "dotenv";
 
 const PORT = process.env.PORT || 3001;
 
@@ -11,10 +13,10 @@ app.use(express.json());
 
 app.use(cors());
 
-app.use("/api/notes",noteRouter);
+app.use("/notes",noteRouter);
 
-app.use("/api/users",userRouter);
+app.use("/users",userRouter);
 
 app.listen(PORT, ()=> {
-    console.log(`http://localhost:${PORT}`);
+    console.log(`http://localhost:${PORT}/api`);
 });
