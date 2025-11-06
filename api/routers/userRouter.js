@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as db from "../data/user.js"
+import * as db from "../data/usersTable.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
@@ -41,6 +41,7 @@ router.post("/login", async (req,res) => {
     }
     catch (error){
         console.log(error);
+        return res.status(400).json({message: "Invalid credentials"});
     }
 });
 
