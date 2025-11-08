@@ -1,7 +1,9 @@
 import { Router } from "express";
 import * as db from "../data/usersTable.js"
+import {getUserNotesById} from "../data/notesTable.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import auth from "../authentication.js";
 import "dotenv/config";
 
 const router = Router();
@@ -43,6 +45,21 @@ router.post("/login", async (req,res) => {
         console.log(error);
         return res.status(400).json({message: "Invalid credentials"});
     }
+});
+
+router.get("/:id", (req, res) => {
+    const user = db.getUserById(+req.params.id);
+    if (!user)
+        res.status(404).json({message:"Not found"});
+    return res.status(200).json(user);
+});
+
+router.get("/:id/notes", (req, res) => {
+    const user = db.getUserById(+req.params.id);
+    if (!user)
+        return res.status(404).json({message:"Not found"});
+    const notes = getUserNotesById(user.id);
+    return res.status(200).json(notes);
 });
 
 export default router;

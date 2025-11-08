@@ -6,7 +6,7 @@ db.prepare(
 ).run();
 
 export const getAllPublic = () => {
-  return db.prepare("SELECT * FROM notes WHERE is_public = 1").all();
+  return db.prepare("SELECT * FROM notes WHERE is_public = 1 ORDER BY id DESC").all();
 };
 
 export const getNoteById = (id) => {
@@ -14,7 +14,7 @@ export const getNoteById = (id) => {
 };
 
 export const getNotesByUser = (userId) => {
-  return db.prepare("SELECT * FROM notes WHERE userId = ?").get(userId);
+  return db.prepare("SELECT * FROM notes WHERE userId = ? ORDER BY id DESC").get(userId);
 };
 
 export const saveNote = (userId, title, content, is_public) => {
@@ -27,4 +27,8 @@ export const updateNote = (id, userId, title, content, is_public) => {
 
 export const deleteNote = (id) => {
   db.prepare("DELETE FROM notes WHERE id = ?").run(id);
+};
+
+export const getUserNotesById = (userId) => {
+  return db.prepare("SELECT * FROM notes WHERE (userId = ? AND is_public = 0) ORDER BY id DESC").get(userId);
 };
