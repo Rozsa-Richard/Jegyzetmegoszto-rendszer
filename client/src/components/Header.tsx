@@ -5,7 +5,7 @@ import '../styles/default.css'
 const Header = () => {
 
   return (
-    <nav className="navbar fixed-top navbar-expand-lg bg-warning">
+    <nav className="navbar sticky-top navbar-expand-lg bg-warning homeNavigation">
         <div className="container-fluid">
             <a className="navbar-brand" href="http://localhost:5173/">
                 <img src={logo} alt="Logo" width="30" height="24" className="d-inline-block align-text-center"/>
@@ -27,5 +27,3 @@ const Header = () => {
 }
 
 export default Header
-
-//https://getbootstrap.com/docs/5.3/components/navbar/
