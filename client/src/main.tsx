@@ -8,6 +8,7 @@ import { Slide, ToastContainer } from 'react-toastify'
 import 'bootstrap/dist/css/bootstrap.css'
 import ProfilePage from './pages/ProfilePage.tsx'
 import CreatePage from './pages/CreatePage.tsx'
+import NotePage from './pages/NotePage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')!).render(
       <Routes>
         <Route path='/home' element={<HomePage/>}/> 
         <Route path='/create' element={<CreatePage/>}/> 
+        <Route path='/note/:id' element={<NotePage/>}/> 
         <Route path='/profile/:id' element={<ProfilePage/>}/> 
         <Route path='/login' element={<LoginPage/>}/> 
         <Route path='/register' element={<RegisterPage/>}/> 

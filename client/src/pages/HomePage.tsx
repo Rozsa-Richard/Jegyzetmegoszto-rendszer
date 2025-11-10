@@ -7,8 +7,7 @@ function HomePage() {
   return (
     <>
       <Header />
-    
-
+      
       <div className='d-flex align-items-center justify-content-center page'>
         <Pencil/>
         <NoteList url='/notes/public'/>

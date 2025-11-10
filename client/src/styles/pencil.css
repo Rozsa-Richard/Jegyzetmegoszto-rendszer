@@ -46,16 +46,15 @@
 
 @media (max-width: 768px) {
   .floating-pencil {
+    position: fixed;
     width: 280px;
     height: 60px;
-    top: auto;
-    bottom: 20px;
     left: calc(50% - 140px);
 
+    display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 10px;
-
     border-radius: 8px;
   }
 

@@ -19,7 +19,7 @@ const NoteList = ({url}: NoteListProp) => {
     {notes != null ? 
       (<>
         {notes.map((n)=>(
-            <a key={n.id} href="#" className='list-group-item list-group-item-action'>
+            <a key={n.id} href={`http://localhost:5173/note/${n.id}`} className='list-group-item list-group-item-action'>
               <div className="d-flex w-100 justify-content-between">
                 <h5 className="mb-1">{n.title}</h5>
                 <small>Id: {n.id}</small>

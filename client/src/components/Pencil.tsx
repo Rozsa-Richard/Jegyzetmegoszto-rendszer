@@ -2,15 +2,14 @@ import "../styles/pencil.css"
 
 const Pencil = () => {
   return (
-    <div className="d-flex justify-content-center align-items-center pencil-container">
-      <div className="pencil">
-        <div className="pencil-tip"></div>
-        <div className="pencil-body">
-          <a className="nav-link" href="/create">Hozzáadás</a>
-        </div>
-        <div className="pencil-eraser"></div>
-      </div>
-    </div>
+    <div className="floating-pencil">
+  <div className="pencil-eraser"></div>
+  <div className="pencil-body">
+    <div className="pencil-item"><a className="nav-link" href="/home">Főoldal</a></div>
+    <div className="pencil-item"><a className="nav-link" href="/create">Hozzáadás</a></div>
+  </div>
+  <div className="pencil-tip"></div>
+</div>
   )
 }
 

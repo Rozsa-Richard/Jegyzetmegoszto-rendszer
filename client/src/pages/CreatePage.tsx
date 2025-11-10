@@ -1,10 +1,11 @@
-import { useState } from "react"
-import Header from "../components/Header"
-import "../styles/default.css"
+import { useState } from "react";
+import Header from "../components/Header";
+import "../styles/default.css";
 import apiClient from "../apiClient";
 import type { Note } from "../types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Pencil from "../components/Pencil";
 
 const CreatePage = () => {
     const navigate = useNavigate();
@@ -16,7 +17,10 @@ const CreatePage = () => {
     const changeIsPublic = () => is_public ? setIspublic(false) : setIspublic(true);
     
     const createButton = () => {
-        const newNote = {
+        if (localStorage.getItem('accessToken') == null)
+            toast.error("Bejelentkezés nélkül jegyzetet nem lehet létrehozni");
+        else {
+            const newNote = {
             title,
             content,
             is_public: (is_public ? 1 : 0),
@@ -28,12 +32,19 @@ const CreatePage = () => {
                 toast.info("Sikeresen létrehoztad!"); 
             })
             .catch(() => toast.error("Hiba történt!") );
+        }
     };
 
   return (<>
     <Header />
 
-    <div className='d-flex align-items-center justify-content-center page'>
+    <div className='page'>
+        <Pencil />
+
+        <div className="title">
+            <h1>Jegyzet létrehozás</h1>
+        </div>
+
         <form className="createForm">
             <div className="mb-3">
                 <label className="form-label">Cím:</label>

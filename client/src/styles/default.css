@@ -3,7 +3,7 @@ img {
 }
 
 .mainList {
-  width: 50%;
+  width: 60%;
   overflow:auto;
   height: 60%;
   border: 2px solid black;
@@ -21,7 +21,6 @@ img {
 }
 
 .homeNavigation {
-  height: 7vh;
   border-bottom: 2px solid black;
 }
 
@@ -34,18 +33,44 @@ img {
   height: 100%;
   text-align: center;
 }
+h1 {
+  text-align: center;
+  margin: 10%;
+}
 
 .createForm {
   width: 60%;
   background-color: white;
   border: 2px solid black;
   border-radius: 2rem;
-  margin: 2%;
+  margin: auto;
   padding: 3rem;
 }
 
+.w-6 {
+  width: 60%;
+  margin: auto;
+}
 
-/*Switch*/
+.title {
+  margin: 2.5%;
+}
+
+@media (max-width: 768px) {
+  .mainList {
+    width: 80%;
+  }
+  .title{
+    margin: 30px;
+  }
+}
+
+@media (max-width: 991px) {
+  .title{
+    margin: 50px;
+  }
+}
+
 .my-switch .form-check-input:checked {
   background-color: #4caf50; 
   border-color: #4caf50;
