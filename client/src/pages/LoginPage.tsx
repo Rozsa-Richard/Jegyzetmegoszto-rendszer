@@ -4,8 +4,11 @@ import Header from "../components/Header";
 import '../styles/default.css';
 import type { User } from "../types";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+    const navigate = useNavigate();
+
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
 
@@ -16,7 +19,11 @@ const LoginPage = () => {
         } as User;
 
         apiClient.post("/users/login", user)
-                .then((r)=> toast.info("Token: "+r.data))
+                .then((r)=> {
+                    navigate('/home');
+                    toast.info("Sikeres bejelentkezés"); 
+                    localStorage.setItem('accessToken',r.data);
+                })
                 .catch((err)=> err.code =="ERR_NETWORK" ? toast.info("Nem sikerül felvenni a kapcsolatot a szerverrel") : toast.error("Hibás email vagy jelszó"));
     };
 

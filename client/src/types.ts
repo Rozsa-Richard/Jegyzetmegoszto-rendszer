@@ -1,6 +1,6 @@
 export type Note = {
     id ?: number,
-    userId : number,
+    userId ?: number,
     title : string,
     content: string,
     is_public: number,

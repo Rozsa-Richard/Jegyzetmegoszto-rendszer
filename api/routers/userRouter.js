@@ -3,7 +3,6 @@ import * as db from "../data/usersTable.js"
 import {getUserNotesById} from "../data/notesTable.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import auth from "../authentication.js";
 import "dotenv/config";
 
 const router = Router();

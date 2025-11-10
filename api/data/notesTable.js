@@ -14,7 +14,7 @@ export const getNoteById = (id) => {
 };
 
 export const getNotesByUser = (userId) => {
-  return db.prepare("SELECT * FROM notes WHERE userId = ? ORDER BY id DESC").get(userId);
+  return db.prepare("SELECT * FROM notes WHERE userId = ? ORDER BY id DESC").all(userId);
 };
 
 export const saveNote = (userId, title, content, is_public) => {

@@ -16,7 +16,7 @@ router.get("/my", auth,(req,res) => {
 
 router.post("/", auth, (req,res) => {
     const {title, content, is_public} = req.body;
-    if (!title || !content || !is_public)
+    if (!title || !content || !(is_public==0 || is_public==1))
         return res.status(400).json({message: "Bad request"});
     db.saveNote(req.userId, title, content, is_public);
     return res.status(201).json({message: "Created"});
