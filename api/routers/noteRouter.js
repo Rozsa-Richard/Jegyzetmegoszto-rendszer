@@ -1,6 +1,7 @@
 import { Router } from "express";
 import * as db from "../data/notesTable.js"
 import auth from "../authentication.js";
+import { authForNote } from "../authentication.js";
 
 const router = Router();
 
@@ -22,12 +23,13 @@ router.post("/", auth, (req,res) => {
     return res.status(201).json({message: "Created"});
 });
 
-router.get("/:id", auth, (req,res) => {
+router.get("/:id", (req,res) => {
     const note = db.getNoteById(+req.params.id);
     if (!note)
         return res.status(404).json({message:"Not Found"});
     if (note.is_public == 0){
-        if (note.userId == req.userId)
+        const userId = authForNote(req);
+        if (note.userId == userId)
             return res.status(200).json(note);
         return res.status(404).json({message:"Not Found"})
     }

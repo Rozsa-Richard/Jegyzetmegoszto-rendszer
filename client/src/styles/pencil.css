@@ -1,62 +1,93 @@
-.pencil-container {
-  height: 50vh;
+.floating-pencil {
+  position: absolute;   
+  top: 20%;        
+  left: 50px;            
+  width: 60px;
+  height: 60%;
+  
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 
-.pencil {
+.pencil-eraser {
+  height: 40px;
+  background: #f6b5b8;
+  border-bottom: 4px solid #b8860b;
+  border-radius: 8px 8px 0 0;
+}
+
+.pencil-body {
+  flex: 1;
+  background: linear-gradient(to bottom, #ffd85e, #ffcd35);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-right: 30px;
-  transition: all 0.3s ease;
+  padding-top: 10px;
+}
+
+.pencil-item {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin: 15px 0;
+  font-weight: 600;
 }
 
 .pencil-tip {
   width: 0;
   height: 0;
-  border-left: 5vw solid transparent;
-  border-right: 5vw solid transparent;
-  border-bottom: 10vh solid #555;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 60px solid #2e2e2e;
 }
 
-.pencil-body {
-  width: 10vw;
-  height: 30vh;
-  background-color: #f4c542;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .floating-pencil {
+    width: 280px;
+    height: 60px;
+    top: auto;
+    bottom: 20px;
+    left: calc(50% - 140px);
 
-.pencil-eraser {
-  width: 10vw;
-  height: 4vh;
-  background-color: #e57373;
-  border-top: 0.5vh solid #ccc;
-}
+    flex-direction: row;
+    align-items: center;
+    padding: 0 10px;
 
-
-@media (min-width: 768px) {
-  .pencil-body {
-    height: 40vh;
-    width: 8vw;
+    border-radius: 8px;
   }
-  .pencil-tip {
-    border-left: 4vw solid transparent;
-    border-right: 4vw solid transparent;
-    border-bottom: 10vh solid #555;
-  }
+
   .pencil-eraser {
-    width: 8vw;
-    height: 4vh;
-    border-top: 0.3vh solid #ccc;
+    width: 40px;
+    height: 100%;
+    border-bottom: none;
+    border-right: 4px solid #b8860b;
+    border-radius: 8px 0 0 8px;
   }
-}
 
-@media (max-width: 767px) {
-  .pencil {
-    flex-direction: row !important;
-    transform: rotate(-90deg);
-    margin-bottom: 10px;
+  .pencil-body {
+    flex-direction: row;
+    height: 100%;
+    padding: 0 10px;
+  }
+
+  .pencil-item {
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin: 0 12px;
+  }
+
+  .pencil-tip {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+    width: 0;
+    height: 0;
+    border-left: 30px solid #2e2e2e;
+    border-top: 30px solid transparent;
+    border-bottom: 30px solid transparent;
   }
 }
