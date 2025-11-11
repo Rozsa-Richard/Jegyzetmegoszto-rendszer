@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import ProfilePage from './pages/ProfilePage.tsx'
 import CreatePage from './pages/CreatePage.tsx'
 import NotePage from './pages/NotePage.tsx'
+import UpdatePage from './pages/UpdatePage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/create' element={<CreatePage/>}/> 
         <Route path='/note/:id' element={<NotePage/>}/> 
         <Route path='/profile/:id' element={<ProfilePage/>}/> 
+        <Route path='/edit/:id' element={<UpdatePage/>}/>
         <Route path='/login' element={<LoginPage/>}/> 
         <Route path='/register' element={<RegisterPage/>}/> 
         <Route path='*' element={<h1>404 Oldal nem található!</h1>}/>

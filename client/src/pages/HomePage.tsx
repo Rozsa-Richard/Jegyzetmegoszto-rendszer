@@ -8,9 +8,14 @@ function HomePage() {
     <>
       <Header />
       
-      <div className='d-flex align-items-center justify-content-center page'>
+      <div className='page'>
         <Pencil/>
-        <NoteList url='/notes/public'/>
+        <div className="title">
+          <h1>Publikus jegyzetek</h1>
+        </div>
+        <div className='w-6'>
+          <NoteList url='/notes/public'/>
+        </div>
       </div>
     </>
   )

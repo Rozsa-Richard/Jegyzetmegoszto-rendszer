@@ -2,8 +2,11 @@ img {
   margin-right: 10px;
 }
 
+small > img {
+  width: 20px;
+}
+
 .mainList {
-  width: 60%;
   overflow:auto;
   height: 60%;
   border: 2px solid black;
@@ -50,6 +53,10 @@ h1 {
 .w-6 {
   width: 60%;
   margin: auto;
+}
+
+.m-auto {
+
 }
 
 .title {

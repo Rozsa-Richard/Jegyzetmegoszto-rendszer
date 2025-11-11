@@ -1,8 +1,8 @@
 import { toast } from "react-toastify";
-import apiClient from "../apiClient";
+import apiClient from "../api/apiClient";
 import Header from "../components/Header";
 import '../styles/default.css';
-import type { User } from "../types";
+import type { User } from "../types/types";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,8 @@ const LoginPage = () => {
                 .then((r)=> {
                     navigate('/home');
                     toast.info("Sikeres bejelentkezés"); 
-                    localStorage.setItem('accessToken',r.data);
+                    localStorage.setItem('userId',r.data.id);
+                    localStorage.setItem('accessToken',r.data.token);
                 })
                 .catch((err)=> err.code =="ERR_NETWORK" ? toast.info("Nem sikerül felvenni a kapcsolatot a szerverrel") : toast.error("Hibás email vagy jelszó"));
     };
