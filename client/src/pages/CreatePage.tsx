@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import "../styles/default.css";
-import apiClient from "../apiClient";
-import type { Note } from "../types";
+import apiClient from "../api/apiClient";
+import type { Note } from "../types/types";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import Pencil from "../components/Pencil";
@@ -16,6 +16,11 @@ const CreatePage = () => {
 
     const changeIsPublic = () => is_public ? setIspublic(false) : setIspublic(true);
     
+    useEffect(()=> {
+        if (localStorage.getItem('accessToken') == null)
+            toast.error("Bejelentkezés nélkül jegyzetet nem lehet létrehozni");
+    },[]);
+
     const createButton = () => {
         if (localStorage.getItem('accessToken') == null)
             toast.error("Bejelentkezés nélkül jegyzetet nem lehet létrehozni");

@@ -2,8 +2,8 @@ import { useState } from "react";
 import Header from "../components/Header";
 import '../styles/default.css';
 import { toast } from "react-toastify";
-import type { User } from "../types";
-import apiClient from "../apiClient";
+import type { User } from "../types/types";
+import apiClient from "../api/apiClient";
 import { useNavigate } from 'react-router-dom';
 
 const RegisterPage = () => {

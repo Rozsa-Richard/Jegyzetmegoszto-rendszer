@@ -30,5 +30,5 @@ export const deleteNote = (id) => {
 };
 
 export const getUserNotesById = (userId) => {
-  return db.prepare("SELECT * FROM notes WHERE (userId = ? AND is_public = 0) ORDER BY id DESC").get(userId);
+  return db.prepare("SELECT * FROM notes WHERE (userId = ? AND is_public = 1) ORDER BY id DESC").get(userId);
 };
