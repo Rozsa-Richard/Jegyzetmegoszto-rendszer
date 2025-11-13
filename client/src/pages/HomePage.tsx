@@ -6,10 +6,10 @@ import '../styles/default.css'
 function HomePage() {
   return (
     <>
-      <Header />
-      
+    <Header />
       <div className='d-flex align-items-center justify-content-center page'>
         <Pencil/>
+
         <NoteList url='/notes/public'/>
       </div>
     </>
