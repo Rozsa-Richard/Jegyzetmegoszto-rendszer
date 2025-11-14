@@ -10,6 +10,7 @@ import ProfilePage from './pages/ProfilePage.tsx'
 import CreatePage from './pages/CreatePage.tsx'
 import NotePage from './pages/NotePage.tsx'
 import UpdatePage from './pages/UpdatePage.tsx'
+import NotFoundPage from './pages/NotFoundPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -22,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='/edit/:id' element={<UpdatePage/>}/>
         <Route path='/login' element={<LoginPage/>}/> 
         <Route path='/register' element={<RegisterPage/>}/> 
-        <Route path='*' element={<h1>404 Oldal nem található!</h1>}/>
+        <Route path='*' element={<NotFoundPage />}/>
       </Routes>
     </BrowserRouter>
     

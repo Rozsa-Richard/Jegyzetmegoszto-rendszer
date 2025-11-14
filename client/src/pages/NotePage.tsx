@@ -46,7 +46,7 @@ const NotePage = () => {
             <h1>{note.title}</h1>
             <p>Tartalom: <br/> {note.content}</p>
             Készítette: {user?.name}
-            {note.is_public == 0 && <img src={padlock} alt="Zárolt"/>}
+            {note.is_public == 0 && <small><img src={padlock} alt="Zárolt"/></small>}
 
             {updateButton}
         </div>) : (<NotFound />)}

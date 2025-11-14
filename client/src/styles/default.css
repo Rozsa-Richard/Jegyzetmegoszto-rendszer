@@ -6,13 +6,6 @@ small > img {
   width: 20px;
 }
 
-.mainList {
-  overflow:auto;
-  height: 60%;
-  border: 2px solid black;
-  background-color: white;
-}
-
 #root {
   width: 100%;
   margin: 0;
@@ -60,10 +53,6 @@ h1 {
 .w-6 {
   width: 60%;
   margin: auto;
-}
-
-.m-auto {
-
 }
 
 .title {

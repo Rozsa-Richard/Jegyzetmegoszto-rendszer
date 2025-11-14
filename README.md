@@ -23,4 +23,3 @@ JWT_SECRET_KEY = add2ef10e03001b8f69f5f10e1b822c45a1976ee0a8127eeea43e06edba0973
 TODO:
 szerkesztési idő az adatbázishoz
 profile page
-nem talált oldal

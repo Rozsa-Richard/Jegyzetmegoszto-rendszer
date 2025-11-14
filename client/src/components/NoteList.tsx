@@ -15,7 +15,7 @@ const NoteList = ({url}: NoteListProp) => {
         apiClient.get(url).then((r)=> {setNotes(r.data)}).catch(()=> toast.error("Jegyzetek betöltése sikertelen"));
     },[]);
 
-  return (<div className='list-group mainList'>
+  return (<div className='list-group'>
     {notes != null ? 
       (<>
         {notes.map((n)=>(
