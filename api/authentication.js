@@ -1,4 +1,3 @@
-import * as db from "./data/usersTable.js";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
 
