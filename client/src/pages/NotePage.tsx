@@ -15,7 +15,7 @@ const NotePage = () => {
   const [note, setNote] = useState<Note>();
   const [user, setUser] = useState<User>();
 
-  useEffect(()=> {
+  useEffect(()=> {    
     apiClient.get(`/notes/${id}`)
         .then((r)=> {
             setNote(r.data);
