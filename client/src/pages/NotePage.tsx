@@ -24,12 +24,18 @@ const NotePage = () => {
         .catch(()=> toast.error("404 Oldal nem található"));
   },[]);
 
-  const updateButton = (localStorage.getItem("userId") == `${user?.id}`) && 
+    const deleteButton = () => {
+      console.log("DSa")
+      apiClient.delete(`/notes/${id}`)
+          .then(()=> {toast.success("Sikeres törlés"); navigate("/home");})
+          .catch(()=> toast.error("Törlés sikertelen"));
+    };
+
+    const updateandDeleteButton = (localStorage.getItem("userId") == `${user?.id}`) && 
     <p>
       <button className='btn btn-secondary' onClick={()=> (navigate(`/edit/${id}`))}>Szerkesztés</button>
-      <button className='btn btn-danger' onClick={()=> (toast.error("üzemen kívül"))}>Törlés</button>
-    </p>
-  ;
+      <button className='btn btn-danger' onClick={deleteButton}>Törlés</button>
+    </p>;
 
   return (<>
     <Header />
@@ -48,7 +54,7 @@ const NotePage = () => {
             Készítette: {user?.name}
             {note.is_public == 0 && <small><img src={padlock} alt="Zárolt"/></small>}
 
-            {updateButton}
+            {updateandDeleteButton}
         </div>) : (<NotFound />)}
     </div>
   </>)

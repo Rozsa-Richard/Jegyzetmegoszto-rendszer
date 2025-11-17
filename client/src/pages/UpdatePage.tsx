@@ -35,7 +35,6 @@ const UpdatePage = () => {
           content: note.content,
           is_public: (is_public ? 1 : 0),
       } as Note
-      console.log(noteDto)
       apiClient.put(`/notes/${id}`,noteDto)
           .then(() => {toast.success("Sikeres módosítás"); navigate(`/note/${id}`)})
           .catch(() => toast.error("Sikertelen módosítás"));

@@ -1,6 +1,5 @@
 import '../styles/default.css';
 import logo from '../common/notes.png'
-import '../styles/default.css'
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
