@@ -20,3 +20,7 @@ export const getUserById = (id) => {
 export const getUserByName = (name) => {
   return db.prepare("SELECT id, name, email FROM users WHERE name = ?").get(name);
 };
+
+export const getUserNames = () => {
+  return db.prepare("SELECT id, name, email FROM users").all();
+}

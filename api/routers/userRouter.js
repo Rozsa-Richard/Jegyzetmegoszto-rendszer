@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as db from "../data/usersTable.js"
-import {getUserNotesById} from "../data/notesTable.js"
+import {getUserNotesById, countUserPublicNotes} from "../data/notesTable.js"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
@@ -49,12 +49,22 @@ router.post("/login", async (req,res) => {
     }
 });
 
+router.get("/", (req, res) => {
+    const users = db.getUserNames();
+    return res.status(200).json(users);
+});
+
 router.get("/:id", (req, res) => {
     const user = db.getUserById(+req.params.id);
     if (!user)
         res.status(404).json({message:"Not found"});
     return res.status(200).json(user);
 });
+
+router.get("/:id/count", (req, res) => {
+    const notesCount = countUserPublicNotes(+req.params.id);
+    return res.status(200).json(notesCount);
+})
 
 router.get("/:id/notes", (req, res) => {
     const user = db.getUserById(+req.params.id);
